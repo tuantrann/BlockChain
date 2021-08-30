@@ -1,47 +1,5 @@
-# cpp_starter_project
-
-[![codecov](https://codecov.io/gh/lefticus/cpp_starter_project/branch/master/graph/badge.svg)](https://codecov.io/gh/lefticus/cpp_starter_project)
-
-[![Build Status](https://travis-ci.org/lefticus/cpp_starter_project.svg?branch=master)](https://travis-ci.org/lefticus/cpp_starter_project)
-
-[![Build status](https://ci.appveyor.com/api/projects/status/ro4lbfoa7n0sy74c/branch/master?svg=true)](https://ci.appveyor.com/project/lefticus/cpp-starter-project/branch/master)
-
-![CMake](https://github.com/lefticus/cpp_starter_project/workflows/CMake/badge.svg)
-
-[![Language grade: C++](https://img.shields.io/lgtm/grade/cpp/github/lefticus/cpp_starter_project)](https://lgtm.com/projects/g/lefticus/cpp_starter_project/context:cpp)
-
-## Getting Started
-
-### Use the Github template
-First, click the green `Use this template` button near the top of this page.
-This will take you to Github's ['Generate Repository'](https://github.com/lefticus/cpp_starter_project/generate) page.
-Fill in a repository name and short description, and click 'Create repository from template'.
-This will allow you to create a new repository in your Github account,
-prepopulated with the contents of this project.
-Now you can clone the project locally and get to work!
-
-    $ git clone https://github.com/<user>/<your_new_repo>.git
-
-### Remove frameworks you're not going to use
-If you know you're not going to use one or more of the optional gui/graphics
-frameworks (fltk, gtkmm, imgui, etc.), you can remove them with `git rm`:
-
-    $ git rm -r src/<unnecessary_framework>
-
-## Dependencies
-
-Note about install commands:
-- for Windows, we use [choco](https://chocolatey.org/install).
-- for MacOS, we use [brew](https://brew.sh/).
-- In case of an error in cmake, make sure that the dependencies are on the PATH.
-
-
-### Too Long, Didn't Install
-
-This is a really long list of dependencies, and it's easy to mess up. 
-That's why we have a Docker image that's already set up for you.
-See the [Docker instructions](#docker-instructions) below.
-
+### About
+Blockchain Project in Progress using cpp_starter_project templates.
 
 ### Necessary Dependencies
 1. A C++ compiler that supports C++17.
@@ -224,37 +182,8 @@ The following compilers should work:
 	https://github.com/include-what-you-use/include-what-you-use#how-to-install
 	</details>
 
-#### GUI libraries
-This project can be made to work with several optional GUI frameworks.
-
-If desired, you should install the following optional dependencies as
-directed by their documentation, linked here:
-
-- [FLTK](https://www.fltk.org/doc-1.4/index.html)
-- [GTKMM](https://www.gtkmm.org/en/documentation.html)
-- [QT](https://doc.qt.io/)
-
-The following dependencies can be downloaded automatically by CMake and Conan.
-All you need to do to install them is to turn on a CMake flag during
-configuration.
-If you run into difficulty using them, please refer to their documentation,
-linked here:
-
-- [NANA](http://nanapro.org/en-us/documentation/)
-- [SDL](http://wiki.libsdl.org/FrontPage)
-- [IMGUI](https://github.com/ocornut/imgui/tree/master/docs):
-  This framework depends on SFML, and if you are using Linux, you may need
-  to install several of SFML's dependencies using your package manager. See
-  [the SFML build tutorial](https://www.sfml-dev.org/tutorials/2.5/compile-with-cmake.php)
-  for specifics.
-
 ## Build Instructions
 
-### Build directory
-Make a build directory:
-```
-mkdir build
-```
 ### Specify the compiler using environment variables
 
 By default (if you don't set environment variables `CC` and `CXX`), the system default compiler will be used.
@@ -330,88 +259,6 @@ CMake will detect which compiler was used to build each of the Conan targets. If
 			$Env:CXX="clang++.exe"
 
 </details>
-
-### Configure your build
-
-To configure the project and write makefiles, you could use `cmake` with a bunch of command line options.
-The easier option is to run cmake interactively:
-
-#### **Configure via cmake-gui**:
-
-1) Open cmake-gui from the project directory:
-```
-cmake-gui .
-```
-2) Set the build directory:
-
-![build_dir](https://user-images.githubusercontent.com/16418197/82524586-fa48e380-9af4-11ea-8514-4e18a063d8eb.jpg)
-
-3) Configure the generator:
-
-In cmake-gui, from the upper menu select `Tools/Configure`.
-
-**Warning**: if you have set `CC` and `CXX` always choose the `use default native compilers` option. This picks `CC` and `CXX`. Don't change the compiler at this stage!
-
-<details>
-<summary>Windows - MinGW Makefiles</summary>
-
-Choose MinGW Makefiles as the generator:
-
-<img src="https://user-images.githubusercontent.com/16418197/82769479-616ade80-9dfa-11ea-899e-3a8c31d43032.png" alt="mingw">
-
-</details>
-
-<details>
-<summary>Windows - Visual Studio generator and compiler</summary>
-
-You should have already set `C` and `CXX` to `cl.exe`.
-
-Choose "Visual Studio 16 2019" as the generator:
-
-<img src="https://user-images.githubusercontent.com/16418197/82524696-32502680-9af5-11ea-9697-a42000e900a6.jpg" alt="default_vs">
-
-</details>
-
-<details>
-
-<summary>Windows - Visual Studio generator and Clang Compiler</summary>
-
-You should have already set `C` and `CXX` to `clang.exe` and `clang++.exe`.
-
-Choose "Visual Studio 16 2019" as the generator. To tell Visual studio to use `clang-cl.exe`:
-- If you use the LLVM that is shipped with Visual Studio: write `ClangCl` under "optional toolset to use".
-
-<img src="https://user-images.githubusercontent.com/16418197/82781142-ae60ac00-9e1e-11ea-8c77-222b005a8f7e.png" alt="visual_studio">
-
-- If you use an external LLVM: write [`LLVM_v142`](https://github.com/zufuliu/llvm-utils#llvm-for-visual-studio-2017-and-2019)
- under "optional toolset to use".
-
-<img src="https://user-images.githubusercontent.com/16418197/82769558-b3136900-9dfa-11ea-9f73-02ab8f9b0ca4.png" alt="visual_studio">
-
-</details>
-<br/>
-
-4) Choose the Cmake options and then generate:
-
-![generate](https://user-images.githubusercontent.com/16418197/82781591-c97feb80-9e1f-11ea-86c8-f2748b96f516.png)
-
-#### **Configure via ccmake**:
-with the Cmake Curses Dialog Command Line tool:
-
-    ccmake -S . -B ./build
-
-Once `ccmake` has finished setting up, press 'c' to configure the project,
-press 'g' to generate, and 'q' to quit.
-
-### Build
-Once you have selected all the options you would like to use, you can build the
-project (all targets):
-
-    cmake --build ./build
-
-For Visual Studio, give the build configuration (Release, RelWithDeb, Debug, etc) like the following:
-
-    cmake --build ./build -- /p:configuration=Release
 
 ## Troubleshooting
 
