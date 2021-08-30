@@ -8,7 +8,7 @@ class CppStarterProject(ConanFile):
         "cpp_starter_use_imgui": ["ON", "OFF", ""],
         "cpp_starter_use_sdl": ["ON", "OFF", ""]
     }
-    name = "CppStarterProject"
+    name = "BlockChain"
     version = "0.1"
     requires = (
         "catch2/2.13.7",
